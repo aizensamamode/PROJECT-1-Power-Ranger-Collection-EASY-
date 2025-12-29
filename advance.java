@@ -13,7 +13,7 @@ public class advance {
 
     public static void main(String[] args) {
         while (true) {
-            int choice = menu(); // show menu and get choice
+            int choice = menu(); // show menu and get choice. calling method will run the method first the nreturn its value the nstore it to choice
 
             if (choice == 1) {
                 spin(); // spin a random ranger

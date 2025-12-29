@@ -3,44 +3,64 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Main{
+    static Scanner scan = new Scanner(System.in);
+    static Random ran = new Random();
+    static ArrayList array = new ArrayList<>();
+    static int red = 0, blue = 0, black = 0;
+    static String [] name = {"POWER RANGER RED", "POWER RANGER BLUE", "POWER RANGER BLACK"};
+    static int arraycount = 0;
+    static boolean access = true;
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Random ran = new Random();
-        ArrayList array = new ArrayList<>();
+    static int method1(){
+    System.out.println("WELCOME TO THE RANDOM ROLL POWER RANGER");
+    System.out.println("(PRESS THE NUMBER)");
+    System.out.println("1.) ROLL A POWER RANGER");
+    System.out.println("2.) INVENTORY");
+    System.out.println("3.) EXIT");
+    int choicenumber = scan.nextInt();
+    return choicenumber;
+    }
 
-        int red = 0, blue = 0, black = 0;
-        String [] name = {"POWER RANGER RED", "POWER RANGER BLUE", "POWER RANGER BLACK"};
-        do {         
-        System.out.println("WELCOME TO COLLECTION");
-        System.out.println("1.) SPIN");  
-        System.out.println("2.) CHECK COLLECTION");  
-        System.out.println("3.) EXIT");  
-        int num_choice = scan.nextInt();
-        //if else to 
-        if(num_choice == 1){ //start 1.)
-
-        String random_name = name[ran.nextInt(name.length)]; //created to random a name and store it in random_name
-        System.out.println(random_name);
-        if(random_name.equalsIgnoreCase("POWER RANGER RED")){
+    static String method2(){
+    String youget = name[ran.nextInt(name.length)];
+    System.out.println("YOUVE PULL A "+ youget +"\n");
+    if(youget.equalsIgnoreCase(name[0])){
         red++;
-        }else if(random_name.equalsIgnoreCase("POWER RANGER BLUE")){
-        blue++;
-        }else{
-        black++;
+    }else if(youget.equalsIgnoreCase(name[1])){
+        blue++;       
+    }else if(youget.equalsIgnoreCase(name[2])){
+        black++;       
+    }else{     
+    }
+    arraycount++;
+    String entry = "\n ("+ arraycount + ") [" + youget + "]\n"; // create the string
+    array.add(entry); 
+    return youget;
+    }
+    static void method3(){
+    System.out.println("POWER RANGER RED  : "+red);
+    System.out.println("POWER RANGER BlUE : "+blue);
+    System.out.println("POWER RANGER BLACK: "+black);
+    System.out.println(array);
+    }
+    public static void main(String[] args) {
+    while (access) {
+        int choice = method1();
+        if (choice == 1) {
+            System.out.println("\n");
+            method2();
         }
-
-        } // end 1.)
-
-        else if(num_choice == 2){
-        System.out.println("POWER RANGER RED   : "+red);
-        System.out.println("POWER RANGER BLUE  : "+blue);
-        System.out.println("POWER RANGER BLACK : "+black);
+        else if(choice == 2){
+            System.out.println("\n");
+           method3();
+        }   
+        else if(choice == 3){
+            access = false;
         }
-        
-        else{
-            break;
+        else {
+            System.out.println("\n\n\n\nyou entered incorrect dumbass!!");
         }
-        } while (true);       
+    }
+    
     }
 }
